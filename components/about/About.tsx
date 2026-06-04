@@ -39,7 +39,7 @@ export default function About() {
             {/* Foto */}
             <div className="about-photo about-photo-col">
               <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", borderRadius: "1.5rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <Image src="/unnamed3.jpg" alt="Bryan España" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
+                <Image src="/foto.jpg" alt="Bryan España" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%)" }} />
                 <div style={{ position: "absolute", bottom: "1.25rem", left: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem", background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "0.4rem 0.9rem" }}>
                   <span style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.12em", color: "#f5f5f7", textTransform: "uppercase" }}>
