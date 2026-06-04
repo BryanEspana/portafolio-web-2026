@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     link: "https://ferreinnova.com",
     linkLabel: "Visitar sitio →",
     size: "large",
-    accent: "#0d1a0d",
+    accent: "#111111",
   },
   {
     id: "astro-state",
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     linkLabel: "Ver proyecto →",
     badge: "Ganador Nacional NASA",
     size: "large",
-    accent: "#1a1a2e",
+    accent: "#0e0e0e",
   },
   {
     id: "billetesgt",
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     link: "https://apps.apple.com/gt/app/billetesgt/id6550923490?l=en-GB",
     linkLabel: "Ver en App Store →",
     size: "medium",
-    accent: "#0a0a1a",
+    accent: "#141414",
   },
   {
     id: "filapp",
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     link: "https://apps.apple.com/gt/app/infile-filapp/id6447701126?l=en-GB",
     linkLabel: "Ver en App Store →",
     size: "medium",
-    accent: "#0d1117",
+    accent: "#0a0a0a",
   },
   {
     id: "space-access",
@@ -67,7 +67,7 @@ export const PROJECTS: Project[] = [
     link: "https://www.spaceappschallenge.org/2023/find-a-team/space-access/?tab=project",
     linkLabel: "Ver proyecto →",
     size: "small",
-    accent: "#050510",
+    accent: "#111111",
   },
   {
     id: "filpro",
@@ -78,6 +78,6 @@ export const PROJECTS: Project[] = [
     link: "https://filpro.infile.com/auth",
     linkLabel: "Explorar →",
     size: "medium",
-    accent: "#0a0f1a",
+    accent: "#0e0e0e",
   },
 ];

@@ -42,7 +42,6 @@ export default function About() {
                 <Image src="/unnamed3.jpg" alt="Bryan España" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%)" }} />
                 <div style={{ position: "absolute", bottom: "1.25rem", left: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem", background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "0.4rem 0.9rem" }}>
-                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#34d399", flexShrink: 0 }} />
                   <span style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.12em", color: "#f5f5f7", textTransform: "uppercase" }}>
                     {tr.hero.available}
                   </span>

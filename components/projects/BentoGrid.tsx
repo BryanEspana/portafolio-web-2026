@@ -70,8 +70,8 @@ function StarCard({ project }: { project: Project }) {
     <motion.a
       href={project.link} target="_blank" rel="noopener noreferrer"
       className="bento-card star-card"
-      style={{ display: "flex", flexDirection: "column", gap: "1.5rem", background: project.accent ?? "#0d1a0d", borderRadius: "1.5rem", border: "1px solid rgba(255,255,255,0.12)", padding: "2rem", cursor: "pointer", overflow: "hidden", textDecoration: "none" }}
-      whileHover={{ scale: 1.012, borderColor: "rgba(255,255,255,0.22)" }}
+      style={{ display: "flex", flexDirection: "column", gap: "1.5rem", background: project.accent ?? "#111", borderRadius: "1.5rem", border: "1px solid rgba(255,255,255,0.1)", padding: "2rem", cursor: "pointer", overflow: "hidden", textDecoration: "none" }}
+      whileHover={{ scale: 1.012, borderColor: "rgba(255,255,255,0.25)" }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       <div>
@@ -114,7 +114,7 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
             {project.confidential ? (
               <span style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.08em", fontStyle: "italic" }}>
-                🔒 Stack confidencial
+                Stack confidencial
               </span>
             ) : project.tags.map((tag) => (
               <span key={tag} style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.1)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.05em" }}>{tag}</span>

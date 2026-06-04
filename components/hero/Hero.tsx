@@ -41,10 +41,6 @@ export default function Hero() {
 
           {/* Badge */}
           <div className="hero-badge" style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "2.5rem" }}>
-            <span style={{ position: "relative", display: "flex", width: "8px", height: "8px" }}>
-              <span className="animate-ping" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#34d399", opacity: 0.75 }} />
-              <span style={{ position: "relative", display: "flex", width: "8px", height: "8px", borderRadius: "50%", background: "#34d399" }} />
-            </span>
             <span style={{ fontSize: "0.7rem", fontWeight: 300, letterSpacing: "0.25em", color: "#8a8a8e", textTransform: "uppercase" }}>
               {tr.hero.available}
             </span>
