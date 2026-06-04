@@ -75,7 +75,7 @@ function StarCard({ project }: { project: Project }) {
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       <div>
-        <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(253,224,71,0.35)", background: "rgba(253,224,71,0.07)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#fde047", letterSpacing: "0.08em", marginBottom: "1rem", textTransform: "uppercase" }}>
+        <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.06)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#e0e0e2", letterSpacing: "0.08em", marginBottom: "1rem", textTransform: "uppercase" }}>
           {project.badge}
         </span>
         <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>{project.title}</h3>
@@ -107,7 +107,7 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "1rem" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
           {project.badge && (
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", borderRadius: "999px", border: "1px solid rgba(234,179,8,0.3)", background: "rgba(234,179,8,0.08)", padding: "0.2rem 0.75rem", fontSize: "0.7rem", fontWeight: 500, color: "#fbbf24", letterSpacing: "0.05em" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.15)", background: "rgba(255,255,255,0.05)", padding: "0.2rem 0.75rem", fontSize: "0.7rem", fontWeight: 500, color: "#e0e0e2", letterSpacing: "0.05em" }}>
               {project.badge}
             </span>
           )}
