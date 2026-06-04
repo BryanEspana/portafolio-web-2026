@@ -28,7 +28,7 @@ const AI_ITEMS = {
     {
       number: "04",
       title: "Tools I Work With",
-      body: "Claude, GitHub Copilot, Cursor, v0 by Vercel, ChatGPT. I integrate these into my daily workflow for both mobile and web development.",
+      body: "Claude, GitHub Copilot, Cursor, v0 by Vercel, ChatGPT and Gemini. I integrate these into my daily workflow for both mobile and web development.",
     },
     {
       number: "05",
@@ -60,7 +60,7 @@ const AI_ITEMS = {
     {
       number: "04",
       title: "Herramientas que utilizo",
-      body: "Claude, GitHub Copilot, Cursor, v0 by Vercel, ChatGPT. Las integro en mi flujo diario tanto para desarrollo móvil como web.",
+      body: "Claude, GitHub Copilot, Cursor, v0 by Vercel, ChatGPT y Gemini. Las integro en mi flujo diario tanto para desarrollo móvil como web.",
     },
     {
       number: "05",
@@ -164,18 +164,18 @@ export default function AISection() {
 
           {/* Footer tag */}
           <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: "1rem" }}>
-            <span style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "#3a3a3c", textTransform: "uppercase" }}>
+            <span style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "#8a8a8e", textTransform: "uppercase" }}>
               {lang === "en" ? "Daily tools" : "Herramientas diarias"}
             </span>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-              {["Claude", "Cursor", "GitHub Copilot", "v0", "ChatGPT"].map((tool) => (
+              {["Claude", "Cursor", "GitHub Copilot", "v0", "ChatGPT", "Gemini"].map((tool) => (
                 <span key={tool} style={{
                   borderRadius: "999px",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  padding: "0.2rem 0.7rem",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  padding: "0.25rem 0.8rem",
                   fontSize: "0.72rem",
-                  fontWeight: 300,
-                  color: "#5a5a5e",
+                  fontWeight: 400,
+                  color: "#e0e0e2",
                   letterSpacing: "0.04em",
                 }}>
                   {tool}
