@@ -87,4 +87,29 @@ export const PROJECTS: Project[] = [
     size: "medium",
     accent: "#0e0e0e",
   },
+  {
+    id: "control-fiscal",
+    title: "Control Fiscal",
+    description:
+      "Portal web de gestión fiscal para empresas guatemaltecas — facturación electrónica, cumplimiento tributario y reportes ante la SAT, desarrollado en Infile S.A.",
+    tags: ["Confidencial"],
+    confidential: true,
+    icon: "https://infile.com/hubfs/Hero%20control%20fisc.png",
+    link: "https://infile.com/control-fiscal",
+    linkLabel: "Ver producto →",
+    size: "medium",
+    accent: "#0e0e0e",
+  },
+  {
+    id: "infile-internal",
+    title: "Plataforma Interna Infile",
+    description:
+      "Sistema empresarial interno con gestión avanzada de roles de usuario, permisos granulares, administración de clientes y módulos de automatización para operaciones críticas de Infile S.A.",
+    tags: ["Confidencial"],
+    confidential: true,
+    link: "https://infile.com",
+    linkLabel: "Ver empresa →",
+    size: "medium",
+    accent: "#111111",
+  },
 ];

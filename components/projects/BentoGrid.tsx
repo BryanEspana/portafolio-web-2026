@@ -46,10 +46,14 @@ export default function BentoGrid() {
             <BentoCard project={PROJECTS[1]} minHeight="300px" texts={p.items[PROJECTS[1].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
             <BentoCard project={PROJECTS[2]} minHeight="300px" texts={p.items[PROJECTS[2].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
           </div>
-          <div className="bento-row-3">
+          <div className="bento-row-3" style={{ marginBottom: "1rem" }}>
             <BentoCard project={PROJECTS[3]} minHeight="240px" texts={p.items[PROJECTS[3].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
             <BentoCard project={PROJECTS[4]} minHeight="240px" texts={p.items[PROJECTS[4].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
             <BentoCard project={PROJECTS[5]} minHeight="240px" texts={p.items[PROJECTS[5].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
+          </div>
+          <div className="bento-row-2">
+            <BentoCard project={PROJECTS[6]} minHeight="240px" texts={p.items[PROJECTS[6].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
+            <BentoCard project={PROJECTS[7]} minHeight="240px" texts={p.items[PROJECTS[7].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
           </div>
         </div>
       </section>
@@ -81,8 +85,8 @@ function StarCard({ project, texts, confidentialLabel }: { project: Project; tex
         {/* Icon + badge row */}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
           {project.icon && (
-            <div style={{ width: "48px", height: "48px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Image src={project.icon} alt={project.title} width={48} height={48} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+            <div style={{ width: "72px", height: "72px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Image src={project.icon} alt={project.title} width={72} height={72} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
             </div>
           )}
           <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.06)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#e0e0e2", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -136,13 +140,13 @@ function BentoCard({ project, minHeight, texts, confidentialLabel }: { project: 
         {project.icon ? (
           project.id === "billetesgt" || project.id === "filapp" ? (
             // App Store icons — con fondo y bordes redondeados tipo iOS
-            <div style={{ width: "48px", height: "48px", borderRadius: "12px", overflow: "hidden", flexShrink: 0 }}>
-              <Image src={project.icon} alt={project.title} width={48} height={48} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
+            <div style={{ width: "64px", height: "64px", borderRadius: "16px", overflow: "hidden", flexShrink: 0 }}>
+              <Image src={project.icon} alt={project.title} width={64} height={64} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
             </div>
           ) : (
             // Logos sin fondo — sin contenedor
-            <div style={{ width: "44px", height: "44px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Image src={project.icon} alt={project.title} width={44} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+            <div style={{ width: "64px", height: "64px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Image src={project.icon} alt={project.title} width={64} height={64} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
             </div>
           )
         ) : (

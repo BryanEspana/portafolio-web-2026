@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "is1-ssl.mzstatic.com" },
       { protocol: "https", hostname: "www.spaceappschallenge.org" },
       { protocol: "https", hostname: "filpro.infile.com" },
+      { protocol: "https", hostname: "infile.com" },
     ],
   },
 };
