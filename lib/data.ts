@@ -13,6 +13,18 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    id: "ferreinnova",
+    title: "FerreInnova",
+    description:
+      "Portal SaaS completo para ferreterías — gestión de inventario, punto de venta, caja, reportes y administración de clientes. Diseñado para digitalizar el negocio ferretero de principio a fin.",
+    tags: ["React", "Node.js", "PostgreSQL", "SaaS"],
+    badge: "Proyecto Estrella",
+    link: "https://ferreinnova.com",
+    linkLabel: "Visitar sitio →",
+    size: "large",
+    accent: "#0d1a0d",
+  },
+  {
     id: "astro-state",
     title: "Astro State",
     description:
