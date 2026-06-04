@@ -15,8 +15,8 @@ export default function Footer() {
           <div className="footer-links">
             {[
               { label: "GitHub", href: "https://github.com/BryanEspana" },
-              { label: "LinkedIn", href: "https://www.linkedin.com/in/bryan-espa%C3%B1a/" },
-              { label: "Email", href: "mailto:bespana@infile.com" },
+              { label: "LinkedIn", href: "https://gt.linkedin.com/in/bryan-espa%C3%B1a-62094a212" },
+              { label: "Email", href: "mailto:bryanespana21550@gmail.com" },
             ].map((link) => (
               <a
                 key={link.label}
