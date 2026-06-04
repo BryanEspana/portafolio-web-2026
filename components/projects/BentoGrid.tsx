@@ -6,11 +6,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { PROJECTS, type Project } from "@/lib/data";
+import { useLang } from "@/lib/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BentoGrid() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { tr } = useLang();
+  const p = tr.projects;
 
   useGSAP(
     () => {
@@ -27,26 +30,21 @@ export default function BentoGrid() {
     <>
       <section ref={sectionRef} id="projects" style={{ width: "100%", paddingTop: "8rem", paddingBottom: "8rem" }}>
         <div className="bento-wrapper">
-          <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "#3a3a3c", textTransform: "uppercase", marginBottom: "0.75rem" }}>Proyectos</p>
+          <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "#3a3a3c", textTransform: "uppercase", marginBottom: "0.75rem" }}>{p.label}</p>
           <h2 style={{ fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 900, color: "#fff", lineHeight: 1, margin: 0, marginBottom: "4rem" }}>
-            Trabajo real,{" "}
+            {p.title1}{" "}
             <span style={{ color: "transparent", backgroundImage: "linear-gradient(90deg, #fff 0%, #3a3a3c 100%)", WebkitBackgroundClip: "text", backgroundClip: "text" }}>
-              en producción.
+              {p.title2}
             </span>
           </h2>
 
-          {/* Proyecto estrella — siempre full width */}
           <div style={{ marginBottom: "1rem" }}>
             <StarCard project={PROJECTS[0]} />
           </div>
-
-          {/* Row 1 */}
           <div className="bento-row-2" style={{ marginBottom: "1rem" }}>
             <BentoCard project={PROJECTS[1]} minHeight="300px" />
             <BentoCard project={PROJECTS[2]} minHeight="300px" />
           </div>
-
-          {/* Row 2 */}
           <div className="bento-row-3">
             <BentoCard project={PROJECTS[3]} minHeight="240px" />
             <BentoCard project={PROJECTS[4]} minHeight="240px" />
@@ -56,34 +54,12 @@ export default function BentoGrid() {
       </section>
 
       <style>{`
-        .bento-wrapper {
-          max-width: 1152px;
-          margin: 0 auto;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-        .bento-row-2 {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
-        .bento-row-3 {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
-        @media (min-width: 640px) {
-          .bento-wrapper { padding-left: 2rem; padding-right: 2rem; }
-        }
-        @media (min-width: 768px) {
-          .bento-row-2 { grid-template-columns: 1fr 1fr; }
-          .bento-row-3 { grid-template-columns: 1fr 1fr; }
-        }
-        @media (min-width: 1100px) {
-          .bento-wrapper { padding-left: 3rem; padding-right: 3rem; }
-          .bento-row-2 { grid-template-columns: 2fr 1fr; }
-          .bento-row-3 { grid-template-columns: 1fr 1fr 1.5fr; }
-        }
+        .bento-wrapper { max-width: 1152px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+        .bento-row-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        .bento-row-3 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 640px) { .bento-wrapper { padding-left: 2rem; padding-right: 2rem; } }
+        @media (min-width: 768px) { .bento-row-2 { grid-template-columns: 1fr 1fr; } .bento-row-3 { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 1100px) { .bento-wrapper { padding-left: 3rem; padding-right: 3rem; } .bento-row-2 { grid-template-columns: 2fr 1fr; } .bento-row-3 { grid-template-columns: 1fr 1fr 1.5fr; } }
       `}</style>
     </>
   );
@@ -102,12 +78,8 @@ function StarCard({ project }: { project: Project }) {
         <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(253,224,71,0.35)", background: "rgba(253,224,71,0.07)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#fde047", letterSpacing: "0.08em", marginBottom: "1rem", textTransform: "uppercase" }}>
           {project.badge}
         </span>
-        <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>
-          {project.title}
-        </h3>
-        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>
-          {project.description}
-        </p>
+        <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>{project.title}</h3>
+        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>{project.description}</p>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>

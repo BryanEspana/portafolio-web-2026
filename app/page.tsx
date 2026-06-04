@@ -1,4 +1,5 @@
 import GSAPProvider from "@/components/GSAPProvider";
+import { LanguageProvider } from "@/lib/LanguageContext";
 import Navbar from "@/components/nav/Navbar";
 import Hero from "@/components/hero/Hero";
 import About from "@/components/about/About";
@@ -8,15 +9,17 @@ import Footer from "@/components/nav/Footer";
 
 export default function Home() {
   return (
-    <GSAPProvider>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <BentoGrid />
-        <TechStack />
-      </main>
-      <Footer />
-    </GSAPProvider>
+    <LanguageProvider>
+      <GSAPProvider>
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <BentoGrid />
+          <TechStack />
+        </main>
+        <Footer />
+      </GSAPProvider>
+    </LanguageProvider>
   );
 }

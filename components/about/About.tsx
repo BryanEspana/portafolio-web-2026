@@ -6,18 +6,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLang } from "@/lib/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const STATS = [
-  { value: "4+", label: "Años de experiencia" },
-  { value: "3", label: "Años en Infile S.A." },
-  { value: "2×", label: "NASA Space Apps" },
-  { value: "∞", label: "Dedicación" },
-];
-
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { tr } = useLang();
+  const a = tr.about;
 
   useGSAP(
     () => {
@@ -37,9 +33,8 @@ export default function About() {
       <section ref={sectionRef} id="about" style={{ width: "100%", paddingTop: "8rem", paddingBottom: "8rem" }}>
         <div className="about-wrapper">
           <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "#3a3a3c", textTransform: "uppercase", marginBottom: "4rem" }}>
-            Sobre mí
+            {a.label}
           </p>
-
           <div className="about-grid">
             {/* Foto */}
             <div className="about-photo about-photo-col">
@@ -48,11 +43,13 @@ export default function About() {
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%)" }} />
                 <div style={{ position: "absolute", bottom: "1.25rem", left: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem", background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "999px", padding: "0.4rem 0.9rem" }}>
                   <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#34d399", flexShrink: 0 }} />
-                  <span style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.12em", color: "#f5f5f7", textTransform: "uppercase" }}>Available for work</span>
+                  <span style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.12em", color: "#f5f5f7", textTransform: "uppercase" }}>
+                    {tr.hero.available}
+                  </span>
                 </div>
               </div>
               <div className="about-stats" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginTop: "1.5rem" }}>
-                {STATS.map((stat) => (
+                {a.stats.map((stat) => (
                   <div key={stat.label} className="about-stat" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1rem" }}>
                     <span style={{ display: "block", fontSize: "1.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, marginBottom: "0.3rem" }}>{stat.value}</span>
                     <span style={{ fontSize: "0.7rem", fontWeight: 300, color: "#c0c0c2", letterSpacing: "0.04em" }}>{stat.label}</span>
@@ -62,22 +59,16 @@ export default function About() {
             </div>
 
             {/* Texto */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "0rem" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <h2 className="about-line" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 900, color: "#fff", lineHeight: 1.05, margin: 0, marginBottom: "2.5rem" }}>
-                Hola, soy<br />
+                {a.title1}<br />
                 <span style={{ color: "transparent", backgroundImage: "linear-gradient(90deg, #fff 0%, #8a8a8e 100%)", WebkitBackgroundClip: "text", backgroundClip: "text" }}>
-                  Bryan España.
+                  {a.title2}
                 </span>
               </h2>
-              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#f5f5f7", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>
-                Con más de 4 años inmerso en el desarrollo de software, he construido una trayectoria sólida que combina rigor técnico con una visión orientada al producto. Durante los últimos 3 años he formado parte del equipo de Infile S.A., donde he contribuido al desarrollo de aplicaciones móviles y web hoy en producción, utilizadas por miles de personas.
-              </p>
-              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>
-                Mi mayor pasión es el desarrollo móvil — especialmente con Flutter — aunque disfruto igual de construir interfaces web modernas y sistemas backend robustos. He participado en múltiples hackathons, incluyendo dos ediciones del NASA Space Apps Challenge, de las cuales salí ganador nacional con Astro State.
-              </p>
-              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "2.5rem" }}>
-                Actualmente curso Ingeniería en Ciencias de la Computación en la Universidad del Valle de Guatemala. Me importa la calidad del código, la experiencia del usuario y el impacto real del producto final.
-              </p>
+              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#f5f5f7", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>{a.p1}</p>
+              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>{a.p2}</p>
+              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "2.5rem" }}>{a.p3}</p>
               <motion.a
                 className="about-line"
                 href="https://github.com/BryanEspana"
@@ -86,7 +77,7 @@ export default function About() {
                 whileHover={{ color: "#fff", borderBottomColor: "#fff" }}
                 transition={{ duration: 0.2 }}
               >
-                Ver GitHub →
+                {a.github}
               </motion.a>
             </div>
           </div>
@@ -94,25 +85,10 @@ export default function About() {
       </section>
 
       <style>{`
-        .about-wrapper {
-          max-width: 1152px;
-          margin: 0 auto;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-        .about-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 3rem;
-        }
-        .about-photo-col {
-          max-width: 360px;
-          margin: 0 auto;
-          width: 100%;
-        }
-        @media (min-width: 640px) {
-          .about-wrapper { padding-left: 2rem; padding-right: 2rem; }
-        }
+        .about-wrapper { max-width: 1152px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+        .about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        .about-photo-col { max-width: 360px; margin: 0 auto; width: 100%; }
+        @media (min-width: 640px) { .about-wrapper { padding-left: 2rem; padding-right: 2rem; } }
         @media (min-width: 1100px) {
           .about-wrapper { padding-left: 3rem; padding-right: 3rem; }
           .about-grid { grid-template-columns: 300px 1fr; gap: 4rem; }

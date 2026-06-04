@@ -5,18 +5,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CATEGORIES = [
-  { label: "Frontend", level: 93, skills: ["HTML/CSS", "TypeScript", "JavaScript", "React", "Angular", "Ruby on Rails", "Next.js"], highlight: false },
-  { label: "Mobile", level: 96, skills: ["Flutter ★", "Dart", "iOS", "Android", "Kotlin", "React Native", "Swift"], highlight: true },
-  { label: "Backend", level: 88, skills: ["Node.js", "Express.js", "Firebase", "Java", "Ruby", "GraphQL"], highlight: false },
-  { label: "Bases de datos", level: 90, skills: ["PostgreSQL", "MySQL", "MongoDB", "Neo4j", "Firebase Firestore", "Redis", "SQLite"], highlight: false },
-];
-
 export default function TechStack() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { tr } = useLang();
+  const s = tr.stack;
 
   useGSAP(
     () => {
@@ -31,13 +27,13 @@ export default function TechStack() {
   );
 
   const handleCategoryHover = (activeIdx: number) => {
-    CATEGORIES.forEach((_, i) => {
+    s.categories.forEach((_, i) => {
       gsap.to(`.category-block-${i}`, { opacity: i === activeIdx ? 1 : 0.25, duration: 0.3, ease: "power2.out" });
     });
   };
 
   const handleCategoryLeave = () => {
-    CATEGORIES.forEach((_, i) => {
+    s.categories.forEach((_, i) => {
       gsap.to(`.category-block-${i}`, { opacity: 1, duration: 0.3 });
     });
   };
@@ -46,16 +42,16 @@ export default function TechStack() {
     <>
       <section ref={sectionRef} id="stack" style={{ width: "100%", paddingTop: "8rem", paddingBottom: "8rem" }}>
         <div className="stack-wrapper">
-          <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "#3a3a3c", textTransform: "uppercase", marginBottom: "0.75rem" }}>Stack</p>
+          <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "#3a3a3c", textTransform: "uppercase", marginBottom: "0.75rem" }}>{s.label}</p>
           <h2 style={{ fontSize: "clamp(2rem, 5vw, 4rem)", fontWeight: 900, color: "#fff", lineHeight: 1, marginBottom: "5rem" }}>
-            Herramientas{" "}
+            {s.title1}{" "}
             <span style={{ color: "transparent", backgroundImage: "linear-gradient(90deg, #fff 0%, #3a3a3c 100%)", WebkitBackgroundClip: "text", backgroundClip: "text" }}>
-              que domino.
+              {s.title2}
             </span>
           </h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
-            {CATEGORIES.map((cat, idx) => (
+            {s.categories.map((cat, idx) => (
               <div key={cat.label} className={`category-block-${idx}`} onMouseEnter={() => handleCategoryHover(idx)} onMouseLeave={handleCategoryLeave}>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.2rem" }}>
                   <span style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: cat.highlight ? "#fff" : "#c0c0c2", minWidth: "80px" }}>
@@ -86,18 +82,9 @@ export default function TechStack() {
       </section>
 
       <style>{`
-        .stack-wrapper {
-          max-width: 1152px;
-          margin: 0 auto;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-        @media (min-width: 640px) {
-          .stack-wrapper { padding-left: 2rem; padding-right: 2rem; }
-        }
-        @media (min-width: 1024px) {
-          .stack-wrapper { padding-left: 3rem; padding-right: 3rem; }
-        }
+        .stack-wrapper { max-width: 1152px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+        @media (min-width: 640px) { .stack-wrapper { padding-left: 2rem; padding-right: 2rem; } }
+        @media (min-width: 1024px) { .stack-wrapper { padding-left: 3rem; padding-right: 3rem; } }
       `}</style>
     </>
   );

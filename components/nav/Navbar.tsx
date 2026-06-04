@@ -2,15 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const LINKS = [
-  { label: "Sobre mí", href: "#about" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Stack", href: "#stack" },
-  { label: "GitHub", href: "https://github.com/BryanEspana", external: true },
-];
+import { useLang } from "@/lib/LanguageContext";
 
 export default function Navbar() {
+  const { lang, setLang, tr } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +14,13 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const LINKS = [
+    { label: tr.nav.about, href: "#about" },
+    { label: tr.nav.projects, href: "#projects" },
+    { label: tr.nav.stack, href: "#stack" },
+    { label: tr.nav.github, href: "https://github.com/BryanEspana", external: true },
+  ];
 
   return (
     <>
@@ -41,7 +43,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "2.5rem" }} className="desktop-nav">
+        <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
           {LINKS.map((link) => (
             <a
               key={link.label}
@@ -55,21 +57,58 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          {/* Language toggle */}
+          <div style={{ display: "flex", alignItems: "center", gap: "0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "999px", overflow: "hidden" }}>
+            {(["en", "es"] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                style={{
+                  padding: "0.3rem 0.75rem",
+                  fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em",
+                  textTransform: "uppercase", cursor: "pointer", border: "none",
+                  background: lang === l ? "#fff" : "transparent",
+                  color: lang === l ? "#000" : "#8a8a8e",
+                  transition: "background 0.2s, color 0.2s",
+                }}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "0.25rem", display: "none", flexDirection: "column", gap: "5px" }}
-        >
-          <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transition: "transform 0.3s", transform: menuOpen ? "rotate(45deg) translateY(6.5px)" : "none" }} />
-          <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "opacity 0.3s" }} />
-          <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transition: "transform 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }} />
-        </button>
+        {/* Mobile: lang toggle + hamburger */}
+        <div className="mobile-controls" style={{ display: "none", alignItems: "center", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "999px", overflow: "hidden" }}>
+            {(["en", "es"] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                style={{
+                  padding: "0.25rem 0.6rem", fontSize: "0.65rem", fontWeight: 600,
+                  letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer",
+                  border: "none", background: lang === l ? "#fff" : "transparent",
+                  color: lang === l ? "#000" : "#8a8a8e", transition: "background 0.2s, color 0.2s",
+                }}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: "0.25rem", display: "flex", flexDirection: "column", gap: "5px" }}
+          >
+            <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transition: "transform 0.3s", transform: menuOpen ? "rotate(45deg) translateY(6.5px)" : "none" }} />
+            <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "opacity 0.3s" }} />
+            <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transition: "transform 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }} />
+          </button>
+        </div>
       </motion.header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -81,8 +120,7 @@ export default function Navbar() {
               position: "fixed", top: "64px", left: 0, right: 0, zIndex: 49,
               background: "rgba(0,0,0,0.95)", backdropFilter: "blur(20px)",
               borderBottom: "1px solid rgba(255,255,255,0.06)",
-              padding: "2rem",
-              display: "flex", flexDirection: "column", gap: "1.5rem",
+              padding: "2rem", display: "flex", flexDirection: "column", gap: "1.5rem",
             }}
           >
             {LINKS.map((link) => (
@@ -104,7 +142,7 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: flex !important; }
+          .mobile-controls { display: flex !important; }
         }
       `}</style>
     </>
