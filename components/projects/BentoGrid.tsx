@@ -40,16 +40,16 @@ export default function BentoGrid() {
           </h2>
 
           <div style={{ marginBottom: "1rem" }}>
-            <StarCard project={PROJECTS[0]} />
+            <StarCard project={PROJECTS[0]} texts={p.items[PROJECTS[0].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
           </div>
           <div className="bento-row-2" style={{ marginBottom: "1rem" }}>
-            <BentoCard project={PROJECTS[1]} minHeight="300px" />
-            <BentoCard project={PROJECTS[2]} minHeight="300px" />
+            <BentoCard project={PROJECTS[1]} minHeight="300px" texts={p.items[PROJECTS[1].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
+            <BentoCard project={PROJECTS[2]} minHeight="300px" texts={p.items[PROJECTS[2].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
           </div>
           <div className="bento-row-3">
-            <BentoCard project={PROJECTS[3]} minHeight="240px" />
-            <BentoCard project={PROJECTS[4]} minHeight="240px" />
-            <BentoCard project={PROJECTS[5]} minHeight="240px" />
+            <BentoCard project={PROJECTS[3]} minHeight="240px" texts={p.items[PROJECTS[3].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
+            <BentoCard project={PROJECTS[4]} minHeight="240px" texts={p.items[PROJECTS[4].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
+            <BentoCard project={PROJECTS[5]} minHeight="240px" texts={p.items[PROJECTS[5].id as keyof typeof p.items]} confidentialLabel={p.confidential} />
           </div>
         </div>
       </section>
@@ -66,7 +66,9 @@ export default function BentoGrid() {
   );
 }
 
-function StarCard({ project }: { project: Project }) {
+type CardTexts = { description: string; linkLabel: string };
+
+function StarCard({ project, texts, confidentialLabel }: { project: Project; texts: CardTexts; confidentialLabel: string }) {
   return (
     <motion.a
       href={project.link} target="_blank" rel="noopener noreferrer"
@@ -88,7 +90,7 @@ function StarCard({ project }: { project: Project }) {
           </span>
         </div>
         <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>{project.title}</h3>
-        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>{project.description}</p>
+        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>{texts.description}</p>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
@@ -97,14 +99,14 @@ function StarCard({ project }: { project: Project }) {
           ))}
         </div>
         <span style={{ fontSize: "0.78rem", fontWeight: 500, letterSpacing: "0.12em", color: "#fff", textTransform: "uppercase", borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "0.2rem", width: "fit-content" }}>
-          {project.linkLabel}
+          {texts.linkLabel}
         </span>
       </div>
     </motion.a>
   );
 }
 
-function BentoCard({ project, minHeight }: { project: Project; minHeight: string }) {
+function BentoCard({ project, minHeight, texts, confidentialLabel }: { project: Project; minHeight: string; texts: CardTexts; confidentialLabel: string }) {
   return (
     <motion.a
       href={project.link} target="_blank" rel="noopener noreferrer"
@@ -123,7 +125,7 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
             {project.confidential ? (
               <span style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.08em", fontStyle: "italic" }}>
-                Stack confidencial
+                {confidentialLabel}
               </span>
             ) : project.tags.map((tag) => (
               <span key={tag} style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.1)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.05em" }}>{tag}</span>
@@ -149,8 +151,8 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
       </div>
       <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
         <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.2 }}>{project.title}</h3>
-        <p style={{ fontSize: "0.83rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.6, marginBottom: "1rem" }}>{project.description}</p>
-        <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#c0c0c2", textTransform: "uppercase" }}>{project.linkLabel}</span>
+        <p style={{ fontSize: "0.83rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.6, marginBottom: "1rem" }}>{texts.description}</p>
+        <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#c0c0c2", textTransform: "uppercase" }}>{texts.linkLabel}</span>
       </div>
     </motion.a>
   );

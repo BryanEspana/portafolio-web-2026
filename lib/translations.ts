@@ -37,6 +37,15 @@ export const t = {
       label: "Projects",
       title1: "Real work,",
       title2: "in production.",
+      confidential: "🔒 Confidential stack",
+      items: {
+        ferreinnova: { description: "Complete SaaS portal for hardware stores — inventory management, point of sale, cash register, reports and customer administration. Designed to digitize the hardware business from start to finish.", linkLabel: "Visit site →" },
+        "astro-state": { description: "Mobile app for astronauts to efficiently log data in space. Winner of the NASA Space Apps Challenge Guatemala.", linkLabel: "View project →" },
+        billetesgt: { description: "iOS app in production for Infile S.A., available on the Guatemala App Store.", linkLabel: "View on App Store →" },
+        filapp: { description: "Enterprise iOS electronic signature app, published on the official App Store.", linkLabel: "View on App Store →" },
+        "space-access": { description: "Interactive real-time planet visualization using Three.js and official NASA APIs.", linkLabel: "View project →" },
+        filpro: { description: "Enterprise web app for document management and electronic signatures in production.", linkLabel: "Explore →" },
+      },
     },
     stack: {
       label: "Stack",
@@ -89,6 +98,15 @@ export const t = {
       label: "Proyectos",
       title1: "Trabajo real,",
       title2: "en producción.",
+      confidential: "🔒 Stack confidencial",
+      items: {
+        ferreinnova: { description: "Portal SaaS completo para ferreterías — gestión de inventario, punto de venta, caja, reportes y administración de clientes. Diseñado para digitalizar el negocio ferretero de principio a fin.", linkLabel: "Visitar sitio →" },
+        "astro-state": { description: "App móvil para que astronautas realicen registros eficientes en el espacio. Ganadora del NASA Space Apps Challenge Guatemala.", linkLabel: "Ver proyecto →" },
+        billetesgt: { description: "App iOS en producción para Infile S.A., disponible en el App Store de Guatemala.", linkLabel: "Ver en App Store →" },
+        filapp: { description: "App iOS empresarial de firma electrónica, publicada en el App Store oficial.", linkLabel: "Ver en App Store →" },
+        "space-access": { description: "Visualización interactiva de planetas en tiempo real con Three.js y APIs oficiales de la NASA.", linkLabel: "Ver proyecto →" },
+        filpro: { description: "Web app empresarial de gestión documental y firma electrónica en producción.", linkLabel: "Explorar →" },
+      },
     },
     stack: {
       label: "Stack",
