@@ -64,7 +64,7 @@ export default function TechStack() {
                   <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.06)", borderRadius: "999px", overflow: "hidden", position: "relative" }}>
                     <div className="stack-bar-fill" style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${cat.level}%`, borderRadius: "999px", background: cat.highlight ? "linear-gradient(90deg, #fff 0%, #8a8a8e 100%)" : "rgba(255,255,255,0.18)" }} />
                   </div>
-                  <span style={{ fontSize: "0.7rem", color: "#8a8a8e", fontFamily: "monospace", minWidth: "36px", textAlign: "right" }}>{cat.level}%</span>
+                  <span style={{ fontSize: "0.7rem", color: "#e0e0e2", fontFamily: "monospace", minWidth: "36px", textAlign: "right" }}>{cat.level}%</span>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                   {cat.skills.map((skill) => (
