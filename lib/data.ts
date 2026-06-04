@@ -21,7 +21,7 @@ export const PROJECTS: Project[] = [
     tags: ["React", "Node.js", "PostgreSQL", "SaaS"],
     badge: "Proyecto Estrella",
     icon: "https://landing.ferreinnova.com/logo/logo-icon-color.svg",
-    link: "https://ferreinnova.com",
+    link: "https://landing.ferreinnova.com/",
     linkLabel: "Visitar sitio →",
     size: "large",
     accent: "#111111",
