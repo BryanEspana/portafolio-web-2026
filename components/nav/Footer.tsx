@@ -1,35 +1,65 @@
+"use client";
+
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-white/[0.06] py-12 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-sm font-light text-[#3a3a3c] tracking-wide">
-          © 2025 Bryan España. Hecho con Next.js + GSAP.
-        </p>
-        <div className="flex items-center gap-8">
-          <a
-            href="https://github.com/BryanEspana"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-light text-[#3a3a3c] hover:text-white transition-colors duration-200 tracking-wide"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/bryan-espa%C3%B1a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-light text-[#3a3a3c] hover:text-white transition-colors duration-200 tracking-wide"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="mailto:bespana@infile.com"
-            className="text-sm font-light text-[#3a3a3c] hover:text-white transition-colors duration-200 tracking-wide"
-          >
-            Email
-          </a>
+    <>
+      <footer style={{ width: "100%", borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "3rem", paddingBottom: "3rem" }}>
+        <div className="footer-inner">
+          <p style={{ fontSize: "0.8rem", fontWeight: 300, color: "#3a3a3c", letterSpacing: "0.05em" }}>
+            © 2025 Bryan España. Hecho con Next.js + GSAP.
+          </p>
+          <div className="footer-links">
+            {[
+              { label: "GitHub", href: "https://github.com/BryanEspana" },
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/bryan-espa%C3%B1a/" },
+              { label: "Email", href: "mailto:bespana@infile.com" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                style={{ fontSize: "0.8rem", fontWeight: 300, color: "#3a3a3c", textDecoration: "none", letterSpacing: "0.05em", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#3a3a3c")}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      <style>{`
+        .footer-inner {
+          max-width: 1152px;
+          margin: 0 auto;
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          text-align: center;
+        }
+        .footer-links {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+        @media (min-width: 640px) {
+          .footer-inner {
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .footer-inner { padding-left: 3rem; padding-right: 3rem; }
+        }
+      `}</style>
+    </>
   );
 }

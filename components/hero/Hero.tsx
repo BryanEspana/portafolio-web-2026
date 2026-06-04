@@ -28,101 +28,104 @@ export default function Hero() {
   );
 
   return (
-    <section
-      ref={containerRef}
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        minHeight: "100vh",
-        paddingTop: "7rem",
-        paddingBottom: "5rem",
-      }}
-    >
-      {/* Glow ambiental */}
-      <div aria-hidden style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-        <div style={{ position: "absolute", top: "-10rem", left: "-10rem", width: "600px", height: "600px", borderRadius: "50%", background: "rgba(255,255,255,0.015)", filter: "blur(80px)" }} />
-      </div>
-
-      {/* Contenedor con padding real */}
-      <div style={{ maxWidth: "1152px", margin: "0 auto", width: "100%", paddingLeft: "3rem", paddingRight: "3rem" }}>
-
-        {/* Badge */}
-        <div className="hero-badge" style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "2.5rem" }}>
-          <span style={{ position: "relative", display: "flex", width: "8px", height: "8px" }}>
-            <span className="animate-ping" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#34d399", opacity: 0.75 }} />
-            <span style={{ position: "relative", display: "flex", width: "8px", height: "8px", borderRadius: "50%", background: "#34d399" }} />
-          </span>
-          <span style={{ fontSize: "0.7rem", fontWeight: 300, letterSpacing: "0.25em", color: "#8a8a8e", textTransform: "uppercase" }}>
-            Available for work
-          </span>
+    <>
+      <section
+        ref={containerRef}
+        style={{
+          position: "relative", display: "flex", flexDirection: "column",
+          justifyContent: "center", minHeight: "100vh",
+          paddingTop: "7rem", paddingBottom: "5rem",
+        }}
+      >
+        <div aria-hidden style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+          <div style={{ position: "absolute", top: "-10rem", left: "-10rem", width: "600px", height: "600px", borderRadius: "50%", background: "rgba(255,255,255,0.015)", filter: "blur(80px)" }} />
         </div>
 
-        {/* Título */}
-        <h1 style={{ margin: 0, marginBottom: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
-          {LINES.map((line, i) => (
-            <div key={i} style={{ overflow: "hidden" }}>
-              <span
-                className="hero-line"
-                style={{
-                  display: "block",
-                  fontSize: "clamp(3.5rem, 9vw, 8.5rem)",
-                  fontWeight: 900,
-                  color: i === 1 ? "transparent" : "#fff",
-                  backgroundImage: i === 1 ? "linear-gradient(90deg, #fff 0%, #8a8a8e 100%)" : undefined,
-                  WebkitBackgroundClip: i === 1 ? "text" : undefined,
-                  backgroundClip: i === 1 ? "text" : undefined,
-                }}
-              >
-                {line}
-              </span>
-            </div>
-          ))}
-        </h1>
+        <div className="hero-container" style={{ maxWidth: "1152px", margin: "0 auto", width: "100%", paddingLeft: "3rem", paddingRight: "3rem" }}>
 
-        {/* Subtítulos */}
-        <div style={{ marginBottom: "3rem" }}>
-          <p className="hero-sub" style={{ fontSize: "1rem", fontWeight: 100, letterSpacing: "0.22em", color: "#8a8a8e", textTransform: "uppercase", marginBottom: "0.4rem" }}>
-            Bryan España — Guatemala
-          </p>
-          <p className="hero-sub" style={{ fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.2em", color: "#3a3a3c", textTransform: "uppercase" }}>
-            UVG · Infile S.A. · NASA Space Apps ◎
-          </p>
+          {/* Badge */}
+          <div className="hero-badge" style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "2.5rem" }}>
+            <span style={{ position: "relative", display: "flex", width: "8px", height: "8px" }}>
+              <span className="animate-ping" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#34d399", opacity: 0.75 }} />
+              <span style={{ position: "relative", display: "flex", width: "8px", height: "8px", borderRadius: "50%", background: "#34d399" }} />
+            </span>
+            <span style={{ fontSize: "0.7rem", fontWeight: 300, letterSpacing: "0.25em", color: "#8a8a8e", textTransform: "uppercase" }}>
+              Available for work
+            </span>
+          </div>
+
+          {/* Título */}
+          <h1 className="hero-title" style={{ margin: 0, marginBottom: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
+            {LINES.map((line, i) => (
+              <div key={i} style={{ overflow: "hidden" }}>
+                <span
+                  className="hero-line"
+                  style={{
+                    display: "block",
+                    fontWeight: 900,
+                    color: i === 1 ? "transparent" : "#fff",
+                    backgroundImage: i === 1 ? "linear-gradient(90deg, #fff 0%, #8a8a8e 100%)" : undefined,
+                    WebkitBackgroundClip: i === 1 ? "text" : undefined,
+                    backgroundClip: i === 1 ? "text" : undefined,
+                  }}
+                >
+                  {line}
+                </span>
+              </div>
+            ))}
+          </h1>
+
+          {/* Subtítulos */}
+          <div style={{ marginBottom: "3rem" }}>
+            <p className="hero-sub" style={{ fontWeight: 100, letterSpacing: "0.22em", color: "#8a8a8e", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+              Bryan España — Guatemala
+            </p>
+            <p className="hero-sub" style={{ fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.2em", color: "#3a3a3c", textTransform: "uppercase" }}>
+              UVG · Infile S.A. · NASA Space Apps ◎
+            </p>
+          </div>
+
+          {/* Botones */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+            <MagneticButton href="#projects" variant="primary" className="hero-btn">
+              Ver Proyectos ↓
+            </MagneticButton>
+            <MagneticButton href="https://github.com/BryanEspana" target="_blank" rel="noopener noreferrer" variant="ghost" className="hero-btn">
+              GitHub →
+            </MagneticButton>
+          </div>
         </div>
 
-        {/* Botones */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-          <MagneticButton href="#projects" variant="primary" className="hero-btn">
-            Ver Proyectos ↓
-          </MagneticButton>
-          <MagneticButton href="https://github.com/BryanEspana" target="_blank" rel="noopener noreferrer" variant="ghost" className="hero-btn">
-            GitHub →
-          </MagneticButton>
+        {/* Scroll indicator */}
+        <div className="hero-scroll" style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem", opacity: 0.4 }}>
+          <span style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#8a8a8e" }}>Scroll</span>
+          <motion.div
+            style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #8a8a8e, transparent)" }}
+            animate={{ scaleY: [1, 0.4, 1], opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-      </div>
+      </section>
 
-      {/* Scroll indicator */}
-      <div className="hero-scroll" style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem", opacity: 0.4 }}>
-        <span style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#8a8a8e" }}>Scroll</span>
-        <motion.div
-          style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #8a8a8e, transparent)" }}
-          animate={{ scaleY: [1, 0.4, 1], opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-    </section>
+      <style>{`
+        .hero-title { font-size: clamp(3rem, 12vw, 8.5rem); }
+        .hero-sub { font-size: clamp(0.65rem, 2vw, 1rem); }
+        .hero-container { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        @media (min-width: 640px) {
+          .hero-container { padding-left: 2rem !important; padding-right: 2rem !important; }
+        }
+        @media (min-width: 1024px) {
+          .hero-container { padding-left: 3rem !important; padding-right: 3rem !important; }
+        }
+      `}</style>
+    </>
   );
 }
 
 /* ── Magnetic Button ─────────────────────────────────────────── */
 interface MagneticButtonProps {
-  href?: string;
-  target?: string;
-  rel?: string;
-  variant?: "primary" | "ghost";
-  className?: string;
-  children: React.ReactNode;
+  href?: string; target?: string; rel?: string;
+  variant?: "primary" | "ghost"; className?: string; children: React.ReactNode;
 }
 
 function MagneticButton({ children, variant = "primary", className = "", href, target, rel }: MagneticButtonProps) {
@@ -143,21 +146,15 @@ function MagneticButton({ children, variant = "primary", className = "", href, t
 
   return (
     <motion.a
-      ref={ref}
-      href={href}
-      target={target}
-      rel={rel}
-      className={className}
+      ref={ref} href={href} target={target} rel={rel} className={className}
       style={{
         display: "inline-flex", alignItems: "center", gap: "0.5rem",
-        borderRadius: "999px",
-        padding: "0.9rem 2rem",
+        borderRadius: "999px", padding: "0.9rem 2rem",
         fontSize: "0.9rem", fontWeight: 500, letterSpacing: "0.03em",
         cursor: "pointer", userSelect: "none", textDecoration: "none",
         background: isPrimary ? "#fff" : "transparent",
         color: isPrimary ? "#000" : "#8a8a8e",
         border: isPrimary ? "none" : "1px solid #3a3a3c",
-        transition: "background 0.2s, color 0.2s, border-color 0.2s",
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
