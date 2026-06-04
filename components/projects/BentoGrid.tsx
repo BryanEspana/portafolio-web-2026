@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { PROJECTS, type Project } from "@/lib/data";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -75,9 +76,17 @@ function StarCard({ project }: { project: Project }) {
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       <div>
-        <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.06)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#e0e0e2", letterSpacing: "0.08em", marginBottom: "1rem", textTransform: "uppercase" }}>
-          {project.badge}
-        </span>
+        {/* Icon + badge row */}
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
+          {project.icon && (
+            <div style={{ width: "48px", height: "48px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Image src={project.icon} alt={project.title} width={48} height={48} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+            </div>
+          )}
+          <span style={{ display: "inline-block", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.06)", padding: "0.25rem 0.9rem", fontSize: "0.7rem", fontWeight: 600, color: "#e0e0e2", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+            {project.badge}
+          </span>
+        </div>
         <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>{project.title}</h3>
         <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>{project.description}</p>
       </div>
@@ -121,7 +130,22 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
             ))}
           </div>
         </div>
-        <span style={{ color: "#8a8a8e", fontSize: "1.1rem", flexShrink: 0 }}>↗</span>
+        {/* Icon en esquina superior derecha */}
+        {project.icon ? (
+          project.id === "billetesgt" || project.id === "filapp" ? (
+            // App Store icons — con fondo y bordes redondeados tipo iOS
+            <div style={{ width: "48px", height: "48px", borderRadius: "12px", overflow: "hidden", flexShrink: 0 }}>
+              <Image src={project.icon} alt={project.title} width={48} height={48} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
+            </div>
+          ) : (
+            // Logos sin fondo — sin contenedor
+            <div style={{ width: "44px", height: "44px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Image src={project.icon} alt={project.title} width={44} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+            </div>
+          )
+        ) : (
+          <span style={{ color: "#8a8a8e", fontSize: "1.1rem", flexShrink: 0 }}>↗</span>
+        )}
       </div>
       <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
         <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.2 }}>{project.title}</h3>

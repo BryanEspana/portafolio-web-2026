@@ -7,6 +7,7 @@ export interface Project {
   link: string;
   linkLabel: string;
   badge?: string;
+  icon?: string;
   size: "large" | "medium" | "small";
   accent?: string;
 }
@@ -19,6 +20,7 @@ export const PROJECTS: Project[] = [
       "Portal SaaS completo para ferreterías — gestión de inventario, punto de venta, caja, reportes y administración de clientes. Diseñado para digitalizar el negocio ferretero de principio a fin.",
     tags: ["React", "Node.js", "PostgreSQL", "SaaS"],
     badge: "Proyecto Estrella",
+    icon: "https://landing.ferreinnova.com/logo/logo-icon-color.svg",
     link: "https://ferreinnova.com",
     linkLabel: "Visitar sitio →",
     size: "large",
@@ -33,6 +35,7 @@ export const PROJECTS: Project[] = [
     link: "https://flutterawesome.com/nasa-space-apps-project-with-flutter/",
     linkLabel: "Ver proyecto →",
     badge: "Ganador Nacional NASA",
+    icon: "https://flutter.dev/assets/flutter-logo.6ed04a8cd70b7aa540c6ec302a4e936c.svg",
     size: "large",
     accent: "#0e0e0e",
   },
@@ -42,6 +45,7 @@ export const PROJECTS: Project[] = [
     description: "App iOS en producción para Infile S.A., disponible en el App Store de Guatemala.",
     tags: ["Confidencial"],
     confidential: true,
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/e8/53/d5e8536a-c74e-ba66-654f-7f7d3a167311/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/400x400ia-75.webp",
     link: "https://apps.apple.com/gt/app/billetesgt/id6550923490?l=en-GB",
     linkLabel: "Ver en App Store →",
     size: "medium",
@@ -53,6 +57,7 @@ export const PROJECTS: Project[] = [
     description: "App iOS empresarial de firma electrónica, publicada en el App Store oficial.",
     tags: ["Confidencial"],
     confidential: true,
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/0b/92/100b926b-d53b-bf36-d3fb-5f967ee54a87/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/400x400ia-75.webp",
     link: "https://apps.apple.com/gt/app/infile-filapp/id6447701126?l=en-GB",
     linkLabel: "Ver en App Store →",
     size: "medium",
@@ -64,6 +69,7 @@ export const PROJECTS: Project[] = [
     description:
       "Visualización interactiva de planetas en tiempo real con Three.js y APIs oficiales de la NASA.",
     tags: ["Three.js", "React", "NASA API"],
+    icon: "https://www.spaceappschallenge.org/assets/media/images/Colorway2-Color_White3x.width-440.jpegquality-60.png",
     link: "https://www.spaceappschallenge.org/2023/find-a-team/space-access/?tab=project",
     linkLabel: "Ver proyecto →",
     size: "small",
@@ -75,6 +81,7 @@ export const PROJECTS: Project[] = [
     description: "Web app empresarial de gestión documental y firma electrónica en producción.",
     tags: ["Confidencial"],
     confidential: true,
+    icon: "https://filpro.infile.com/assets/images/logoF/F.png",
     link: "https://filpro.infile.com/auth",
     linkLabel: "Explorar →",
     size: "medium",
