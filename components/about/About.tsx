@@ -55,7 +55,7 @@ export default function About() {
                 {STATS.map((stat) => (
                   <div key={stat.label} className="about-stat" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1rem" }}>
                     <span style={{ display: "block", fontSize: "1.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, marginBottom: "0.3rem" }}>{stat.value}</span>
-                    <span style={{ fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.04em" }}>{stat.label}</span>
+                    <span style={{ fontSize: "0.7rem", fontWeight: 300, color: "#c0c0c2", letterSpacing: "0.04em" }}>{stat.label}</span>
                   </div>
                 ))}
               </div>
@@ -72,10 +72,10 @@ export default function About() {
               <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#f5f5f7", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>
                 Con más de 4 años inmerso en el desarrollo de software, he construido una trayectoria sólida que combina rigor técnico con una visión orientada al producto. Durante los últimos 3 años he formado parte del equipo de Infile S.A., donde he contribuido al desarrollo de aplicaciones móviles y web hoy en producción, utilizadas por miles de personas.
               </p>
-              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#8a8a8e", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>
+              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "1.5rem" }}>
                 Mi mayor pasión es el desarrollo móvil — especialmente con Flutter — aunque disfruto igual de construir interfaces web modernas y sistemas backend robustos. He participado en múltiples hackathons, incluyendo dos ediciones del NASA Space Apps Challenge, de las cuales salí ganador nacional con Astro State.
               </p>
-              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#8a8a8e", lineHeight: 1.8, margin: 0, marginBottom: "2.5rem" }}>
+              <p className="about-line" style={{ fontSize: "1.05rem", fontWeight: 300, color: "#c0c0c2", lineHeight: 1.8, margin: 0, marginBottom: "2.5rem" }}>
                 Actualmente curso Ingeniería en Ciencias de la Computación en la Universidad del Valle de Guatemala. Me importa la calidad del código, la experiencia del usuario y el impacto real del producto final.
               </p>
               <motion.a
@@ -106,16 +106,16 @@ export default function About() {
           gap: 3rem;
         }
         .about-photo-col {
-          max-width: 400px;
+          max-width: 360px;
           margin: 0 auto;
           width: 100%;
         }
         @media (min-width: 640px) {
           .about-wrapper { padding-left: 2rem; padding-right: 2rem; }
         }
-        @media (min-width: 900px) {
+        @media (min-width: 1100px) {
           .about-wrapper { padding-left: 3rem; padding-right: 3rem; }
-          .about-grid { grid-template-columns: 320px 1fr; gap: 5rem; }
+          .about-grid { grid-template-columns: 300px 1fr; gap: 4rem; }
           .about-photo-col { max-width: 100%; margin: 0; }
         }
       `}</style>

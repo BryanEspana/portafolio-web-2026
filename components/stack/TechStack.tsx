@@ -58,20 +58,20 @@ export default function TechStack() {
             {CATEGORIES.map((cat, idx) => (
               <div key={cat.label} className={`category-block-${idx}`} onMouseEnter={() => handleCategoryHover(idx)} onMouseLeave={handleCategoryLeave}>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.2rem" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: cat.highlight ? "#fff" : "#8a8a8e", minWidth: "80px" }}>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: cat.highlight ? "#fff" : "#c0c0c2", minWidth: "80px" }}>
                     {cat.label}
                   </span>
                   <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.06)", borderRadius: "999px", overflow: "hidden", position: "relative" }}>
                     <div className="stack-bar-fill" style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${cat.level}%`, borderRadius: "999px", background: cat.highlight ? "linear-gradient(90deg, #fff 0%, #8a8a8e 100%)" : "rgba(255,255,255,0.18)" }} />
                   </div>
-                  <span style={{ fontSize: "0.7rem", color: "#3a3a3c", fontFamily: "monospace", minWidth: "36px", textAlign: "right" }}>{cat.level}%</span>
+                  <span style={{ fontSize: "0.7rem", color: "#8a8a8e", fontFamily: "monospace", minWidth: "36px", textAlign: "right" }}>{cat.level}%</span>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                   {cat.skills.map((skill) => (
                     <motion.span
                       key={skill}
                       className="stack-pill"
-                      style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", border: `1px solid ${cat.highlight ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.07)"}`, padding: "0.45rem 1rem", fontSize: "0.85rem", fontWeight: 300, color: cat.highlight ? "#f5f5f7" : "#8a8a8e", background: cat.highlight ? "rgba(255,255,255,0.04)" : "transparent", cursor: "default" }}
+                      style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", border: `1px solid ${cat.highlight ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.07)"}`, padding: "0.45rem 1rem", fontSize: "0.85rem", fontWeight: 300, color: cat.highlight ? "#ffffff" : "#c0c0c2", background: cat.highlight ? "rgba(255,255,255,0.04)" : "transparent", cursor: "default" }}
                       whileHover={{ borderColor: "rgba(255,255,255,0.35)", color: "#ffffff", backgroundColor: "rgba(255,255,255,0.07)" }}
                       transition={{ duration: 0.2 }}
                     >

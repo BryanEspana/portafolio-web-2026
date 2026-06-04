@@ -77,10 +77,10 @@ export default function Hero() {
 
           {/* Subtítulos */}
           <div style={{ marginBottom: "3rem" }}>
-            <p className="hero-sub" style={{ fontWeight: 100, letterSpacing: "0.22em", color: "#8a8a8e", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+            <p className="hero-sub" style={{ fontWeight: 300, letterSpacing: "0.22em", color: "#e0e0e2", textTransform: "uppercase", marginBottom: "0.4rem" }}>
               Bryan España — Guatemala
             </p>
-            <p className="hero-sub" style={{ fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.2em", color: "#3a3a3c", textTransform: "uppercase" }}>
+            <p className="hero-sub" style={{ fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.2em", color: "#c0c0c2", textTransform: "uppercase" }}>
               UVG · Infile S.A. · NASA Space Apps ◎
             </p>
           </div>

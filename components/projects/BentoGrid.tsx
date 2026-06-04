@@ -74,10 +74,12 @@ export default function BentoGrid() {
         }
         @media (min-width: 640px) {
           .bento-wrapper { padding-left: 2rem; padding-right: 2rem; }
+        }
+        @media (min-width: 768px) {
           .bento-row-2 { grid-template-columns: 1fr 1fr; }
           .bento-row-3 { grid-template-columns: 1fr 1fr; }
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1100px) {
           .bento-wrapper { padding-left: 3rem; padding-right: 3rem; }
           .bento-row-2 { grid-template-columns: 2fr 1fr; }
           .bento-row-3 { grid-template-columns: 1fr 1fr 1.5fr; }
@@ -103,17 +105,17 @@ function StarCard({ project }: { project: Project }) {
         <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.1, marginBottom: "0.6rem" }}>
           {project.title}
         </h3>
-        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#8a8a8e", lineHeight: 1.7, margin: 0 }}>
+        <p style={{ fontSize: "0.88rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.7, margin: 0 }}>
           {project.description}
         </p>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
           {project.tags.map((tag) => (
             <span key={tag} style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.1)", padding: "0.25rem 0.75rem", fontSize: "0.72rem", fontWeight: 300, color: "#8a8a8e" }}>{tag}</span>
           ))}
         </div>
-        <span style={{ fontSize: "0.78rem", fontWeight: 500, letterSpacing: "0.12em", color: "#fff", textTransform: "uppercase", borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "0.2rem", whiteSpace: "nowrap" }}>
+        <span style={{ fontSize: "0.78rem", fontWeight: 500, letterSpacing: "0.12em", color: "#fff", textTransform: "uppercase", borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "0.2rem", width: "fit-content" }}>
           {project.linkLabel}
         </span>
       </div>
@@ -139,7 +141,7 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
           )}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
             {project.confidential ? (
-              <span style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#3a3a3c", letterSpacing: "0.08em", fontStyle: "italic" }}>
+              <span style={{ borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)", padding: "0.2rem 0.65rem", fontSize: "0.7rem", fontWeight: 300, color: "#8a8a8e", letterSpacing: "0.08em", fontStyle: "italic" }}>
                 🔒 Stack confidencial
               </span>
             ) : project.tags.map((tag) => (
@@ -147,12 +149,12 @@ function BentoCard({ project, minHeight }: { project: Project; minHeight: string
             ))}
           </div>
         </div>
-        <span style={{ color: "#3a3a3c", fontSize: "1.1rem", flexShrink: 0 }}>↗</span>
+        <span style={{ color: "#8a8a8e", fontSize: "1.1rem", flexShrink: 0 }}>↗</span>
       </div>
       <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
         <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.2 }}>{project.title}</h3>
-        <p style={{ fontSize: "0.83rem", fontWeight: 300, color: "#8a8a8e", lineHeight: 1.6, marginBottom: "1rem" }}>{project.description}</p>
-        <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#3a3a3c", textTransform: "uppercase" }}>{project.linkLabel}</span>
+        <p style={{ fontSize: "0.83rem", fontWeight: 300, color: "#b0b0b4", lineHeight: 1.6, marginBottom: "1rem" }}>{project.description}</p>
+        <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#c0c0c2", textTransform: "uppercase" }}>{project.linkLabel}</span>
       </div>
     </motion.a>
   );
