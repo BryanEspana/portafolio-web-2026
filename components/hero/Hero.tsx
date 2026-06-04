@@ -84,15 +84,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="hero-scroll" style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem", opacity: 0.4 }}>
-          <span style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#8a8a8e" }}>{tr.hero.scroll}</span>
-          <motion.div
-            style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, #8a8a8e, transparent)" }}
-            animate={{ scaleY: [1, 0.4, 1], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+
       </section>
 
       <style>{`
